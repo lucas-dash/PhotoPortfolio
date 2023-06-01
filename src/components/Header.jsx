@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import highlight from '../assets/highlight.svg';
-import heroImage from '../assets/amir-hosseini-8SqJMKk-8ak-unsplash.jpg';
+import heroImage from '../assets/heroimg2.jpeg';
 import { motion } from 'framer-motion';
 
 const Header = () => {
@@ -19,14 +19,14 @@ const Header = () => {
     <header className="h-screen">
       <Navbar />
 
-      <div className="grid grid-row-2 sm:grid-cols-6 sm:grid-rows-4 h-[90vh] w-full">
+      <div className="grid grid-row-2 sm:grid-cols-6 sm:grid-rows-4 h-[90vh] w-full overflow-hidden">
         {/* scroll down cta */}
-        <div className="hidden sm:flex items-center sm:row-start-2 sm:row-end-4 w-max bg-gradient-to-tr from-detail to-detail/10 rounded-r-full -translate-x-10">
-          <div className="transform rotate-90 flex items-center -translate-x-4">
-            <h3 className="font-primary  text-textPrimary text-3xl -translate-x-8">
+        <div className="hidden sm:flex max-h-96 items-center sm:row-start-2 sm:row-end-4 w-max -translate-x-10 bg-gradient-to-tr from-detail to-detail/10 rounded-r-full">
+          <div className="transform rotate-90 flex items-center -translate-x-4 cursor-pointer ">
+            <h3 className="font-primary text-textPrimary text-3xl -translate-x-8 ">
               Scroll down
             </h3>
-            <div className="">
+            <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -50,19 +50,27 @@ const Header = () => {
             I&apos;m capturing your{' '}
             <span className="relative z-10">
               moments.
-              <img
+              <motion.img
                 src={highlight}
                 alt="highlight svg"
                 className="absolute top-1.5 left-0 opacity-80 -z-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.8 }}
               />
             </span>
           </h1>
         </div>
 
         {/* hero image */}
-        <motion.div className="flex justify-center sm:items-center sm:col-start-4 sm:col-end-7 sm:row-start-2 sm:row-end-4">
-          <div className="max-w-max max-h-max ">
-            <div className=" max-w-md max-h-80 aspect-square relative z-10 sm:-translate-x-3">
+        <motion.div
+          className="flex justify-center sm:items-center sm:col-start-4 sm:col-end-7 sm:row-start-2 sm:row-end-4"
+          initial={{ x: 400 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.9, type: 'spring', stiffness: 60 }}
+        >
+          <div className="max-w-max max-h-max">
+            <div className=" max-w-md max-h-80 aspect-square relative z-10 sm:-translate-x-3 ">
               <motion.div
                 className="absolute inset-0 translate-x-2 translate-y-2 -z-10 border-2 border-textSecondary rounded-xl"
                 variants={bgVariant}
@@ -72,7 +80,7 @@ const Header = () => {
                   duration: 0.3,
                   type: 'spring',
                   stiffness: 180,
-                  delay: 0.5,
+                  delay: 0.6,
                 }}
               ></motion.div>
               <img

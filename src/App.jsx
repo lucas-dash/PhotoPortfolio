@@ -1,10 +1,12 @@
 import Hero from './pages/Hero';
+import Portfolio from './pages/Portfolio';
 
 const App = () => {
   return (
-    <div className=" bg-gradient-to-br from-secondary to-primary">
+    <>
       <Hero />
-    </div>
+      <Portfolio />
+    </>
   );
 };
 export default App;
