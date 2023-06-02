@@ -10,7 +10,7 @@ const About = () => {
             <img
               src={aboutImg}
               alt="me on photo"
-              className="w-full h-full object-cover "
+              className="w-full h-full object-cover aspect-video"
             />
           </div>
         </div>
