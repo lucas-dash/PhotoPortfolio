@@ -1,25 +1,24 @@
 import { gallery } from '../utils/gallery';
-import { useInView, motion, useAnimation, useAnimate } from 'framer-motion';
-import { useEffect } from 'react';
+import { useInView, motion, useAnimation } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 
 const Gallery = () => {
   const mainControls = useAnimation();
 
-  const [scope, animate] = useAnimate();
-  const isInView = useInView(scope);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (isInView) {
-      animate('li', { opacity: [0, 1] }, { delay: 0.1 });
       mainControls.start('visible');
     }
-  }, [animate, isInView, mainControls]);
+  }, [isInView, mainControls]);
 
   return (
     <section className="min-h-[500px] px-3 sm:px-12 py-20">
       <motion.ul
         className="columns-2 sm:columns-3 gap-3 space-y-3"
-        ref={scope}
+        ref={ref}
         variants={{
           hidden: { opacity: 0, y: 75 },
           visible: { opacity: 1, y: 0 },
@@ -30,10 +29,7 @@ const Gallery = () => {
       >
         {gallery.map((image, index) => {
           return (
-            <motion.li
-              key={index}
-              className="place-items-center sm:place-items-start"
-            >
+            <li key={index} className="place-items-center sm:place-items-start">
               <div className="h-max max-w-full rounded-lg overflow-hidden shadow-lg shadow-textSecondary/50">
                 <img
                   src={image}
@@ -42,7 +38,7 @@ const Gallery = () => {
                   className="object-cover"
                 />
               </div>
-            </motion.li>
+            </li>
           );
         })}
       </motion.ul>

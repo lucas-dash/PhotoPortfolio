@@ -54,6 +54,7 @@ const About = () => {
             <img
               src={aboutImg}
               alt="me on photo"
+              loading="lazy"
               className="w-full h-full object-cover aspect-video"
             />
           </motion.div>

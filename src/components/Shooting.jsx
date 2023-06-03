@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
 import {
   familyCategory,
   kidsCategory,
   newBornCategory,
 } from '../utils/portfolioImg';
+import { useEffect, useState, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 const Shooting = () => {
   const headRef = useRef(null);
