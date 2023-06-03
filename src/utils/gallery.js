@@ -8,6 +8,8 @@ import image7 from '../assets/gallery/2-17191629_411748295846836_781170463282027
 import image8 from '../assets/gallery/3-17211834_411747989180200_5888476739355281183_o ve velké velikosti.jpeg';
 import image9 from '../assets/gallery/4-17212125_411745389180460_2890284939126064606_o ve velké velikosti.jpeg';
 import image10 from '../assets/gallery/5-17218481_412894439065555_2528746551345793802_o ve velké velikosti.jpeg';
+import image11 from '../assets/gallery/6-18671413_444644212557244_1630118547658552211_o ve velké velikosti.jpeg';
+import image12 from '../assets/gallery/8-19956798_472390743115924_4058120273786721168_o ve velké velikosti.jpeg';
 
 export const gallery = [
   image1,
@@ -20,4 +22,6 @@ export const gallery = [
   image9,
   image8,
   image10,
+  image12,
+  image11,
 ];

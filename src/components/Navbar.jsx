@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Navbar = () => {
   return (
     <motion.nav
-      className=" flex items-center justify-between text-textPrimary h-[60px] container mx-auto px-2 sticky z-40"
+      className=" flex items-center justify-between text-textPrimary h-[60px] container mx-auto px-2 relative z-40"
       initial={{ y: -200 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 90 }}

@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   familyCategory,
   kidsCategory,
   newBornCategory,
 } from '../utils/portfolioImg';
-import { motion } from 'framer-motion';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const Shooting = () => {
+  const headRef = useRef(null);
+  const isInView = useInView(headRef, { once: true });
+  const mainControls = useAnimation();
+
   const categories = ['Family', 'Kids', 'NewBorn'];
   const [activeCategory, setActiveCategory] = useState('Family');
 
@@ -22,15 +27,31 @@ const Shooting = () => {
 
   const activeCategoryData = categoryDataMap[activeCategory];
 
-  return (
-    <section className="container mx-auto mt-40">
-      <h2 className="font-primary text-3xl font-medium pb-14 text-center md:text-left">
-        What Am I Shooting?
-      </h2>
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start('visible');
+    }
+  }, [isInView, mainControls]);
 
-      <article className="">
+  return (
+    <section className="container mx-auto mt-24 md:mt-44">
+      <motion.h2
+        className="font-primary text-3xl font-medium pb-14 text-center md:text-left mx-2"
+        ref={headRef}
+        variants={{
+          hidden: { opacity: 0, y: 75 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        animate={mainControls}
+        transition={{ duration: 0.5, delay: 0.25 }}
+      >
+        What Am I Shooting?
+      </motion.h2>
+
+      <article>
         <div
-          className="flex gap-0 sm:gap-5 md:gap-10 bg-[#D9CF9E]/70 py-1 px-6 w-max rounded-3xl mx-auto md:mx-0"
+          className="flex gap-0 sm:gap-5 md:gap-10 bg-[#D9CF9E]/70 py-1 px-6 w-max rounded-3xl mx-auto md:mx-2 "
           style={{ boxShadow: 'inset 0px 3px 4px #625D5D' }}
         >
           {categories.map((category, index) => {
