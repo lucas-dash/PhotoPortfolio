@@ -37,8 +37,8 @@ const Carousel = ({ images, count }) => {
           initial="hidden"
           animate={mainControls}
           transition={{
-            duration: 0.8,
-            delay: 0.1,
+            duration: 0.96,
+            delay: 0.2,
           }}
         >
           <AnimatePresence custom={count}>

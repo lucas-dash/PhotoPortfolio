@@ -11,20 +11,20 @@ const Shooting = () => {
   const isInView = useInView(headRef, { once: true });
   const mainControls = useAnimation();
 
-  const categories = ['Family', 'Kids', 'NewBorn'];
-  const [activeCategory, setActiveCategory] = useState('Family');
-
-  const handleCategoryClick = (category) => {
-    setActiveCategory(category);
-  };
+  const tabs = [
+    { id: 'family', label: 'Family' },
+    { id: 'kids', label: 'Kids' },
+    { id: 'newborn', label: 'NewBorn' },
+  ];
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   const categoryDataMap = {
-    Family: familyCategory,
-    Kids: kidsCategory,
-    NewBorn: newBornCategory,
+    family: familyCategory,
+    kids: kidsCategory,
+    newborn: newBornCategory,
   };
 
-  const activeCategoryData = categoryDataMap[activeCategory];
+  const activeCategoryData = categoryDataMap[activeTab];
 
   useEffect(() => {
     if (isInView) {
@@ -50,21 +50,30 @@ const Shooting = () => {
 
       <article>
         <div
-          className="flex gap-0 sm:gap-5 md:gap-10 bg-[#D9CF9E]/70 py-1 px-6 w-max rounded-3xl mx-auto md:mx-2 "
-          style={{ boxShadow: 'inset 0px 3px 4px #625D5D' }}
+          className="flex gap-0 sm:gap-5 bg-[#D9CF9E]/70 py-1 px-6 w-max rounded-3xl mx-auto md:mx-2 "
+          style={{ boxShadow: 'inset 0px 3px 4px  #625D5D30' }}
         >
-          {categories.map((category, index) => {
+          {tabs.map((tab) => {
             return (
               <button
-                key={index}
+                key={tab.id}
+                aria-label={tab.label}
                 className={`${
-                  activeCategory === category
-                    ? 'bg-secondary shadow-md shadow-textSecondaty/50'
-                    : ''
-                } py-1 px-4 rounded-2xl font-secondary text-sm sm:text-base`}
-                onClick={() => handleCategoryClick(category)}
+                  activeTab === tab.id ? 'text-textPrimary' : ''
+                } relative py-1 px-4 font-secondary text-sm sm:text-base`}
+                onClick={() => setActiveTab(tab.id)}
               >
-                {category}
+                {activeTab === tab.id && (
+                  <motion.div
+                    layoutId="active-tab"
+                    className="absolute inset-0 bg-detail "
+                    style={{ borderRadius: 16 }}
+                    transition={{ duration: 0.6, type: 'spring' }}
+                  />
+                )}
+                <span className="relative hover:text-textPrimary/60">
+                  {tab.label}
+                </span>
               </button>
             );
           })}
@@ -86,6 +95,7 @@ const Shooting = () => {
                     <motion.img
                       src={image}
                       alt={`image${index}`}
+                      loading="lazy"
                       className="object-cover"
                       whileHover={{ scale: 1.1 }}
                     />
