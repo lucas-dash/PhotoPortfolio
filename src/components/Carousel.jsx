@@ -1,38 +1,75 @@
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useInView,
+} from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { recentImg } from '../utils/carouselImg';
-import { motion, useDragControls, useInView } from 'framer-motion';
+import PropTypes from 'prop-types';
 
-const Carousel = () => {
-  const controls = useDragControls();
+const Carousel = ({ images, count }) => {
+  const container = useRef(null);
+  const inView = useInView(container, { once: true });
 
-  // const imageInView = useRef(null);
-  // const isInView = useInView(imageInView);
+  const mainControls = useAnimation();
 
-  // useEffect(() => {
-  //   console.log(isInView);
-  // }, [isInView]);
+  useEffect(() => {
+    if (inView) {
+      mainControls.start('visible');
+    }
+  }, [inView, mainControls]);
+
+  const variants = {
+    enter: (count) => ({ x: count * 320 }),
+    center: { x: 0 },
+    exit: (count) => ({ x: count * 320 }),
+  };
 
   return (
-    <article className="py-10">
-      <div className="w-full bg-pink-500 cursor-grab overflow-hidden">
+    <article className="py-10" ref={container}>
+      <div className="w-full overflow-hidden ">
         <motion.div
-          className="flex py-4 bg-green-400 overflow-hidden "
-          drag="x"
-          dragConstraints={{ right: 0 }}
-          dragControls={controls}
-          whileTap={{ cursor: 'grabbing' }}
+          className="flex py-4 w-[320px] mx-auto"
+          variants={{
+            hidden: { x: 400 },
+            visible: { x: 0 },
+          }}
+          initial="hidden"
+          animate={mainControls}
+          transition={{
+            duration: 0.8,
+            delay: 0.1,
+          }}
         >
-          {recentImg.map((img, index) => {
-            return (
-              <div className="aspect-video px-5 w-64 " key={index}>
-                <img
-                  src={img}
-                  alt="recent image"
-                  className="w-full h-full object-cover rounded-[10px] pointer-events-none"
-                />
-              </div>
-            );
-          })}
+          <AnimatePresence custom={count}>
+            <motion.div
+              className="flex justify-center items-center"
+              variants={variants}
+              initial="center"
+              animate="enter"
+              exit="exit"
+              custom={count}
+              transition={{
+                duration: 0.35,
+                type: 'spring',
+              }}
+            >
+              {images.map((img, index) => {
+                return (
+                  <motion.div
+                    className="px-2 min-w-[320px] min-h-max"
+                    key={index}
+                  >
+                    <img
+                      src={img}
+                      alt="recent image"
+                      className="w-full h-full object-cover rounded-[10px] pointer-events-none"
+                    />
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
       </div>
     </article>
@@ -40,28 +77,7 @@ const Carousel = () => {
 };
 export default Carousel;
 
-{
-  /* <article className="py-10">
-      <div className="max-w-full bg-pink-500 cursor-grab overflow-hidden">
-        <motion.div
-          className="flex py-4 bg-green-400"
-          drag="x"
-          dragConstraints={{ right: 0 }}
-          dragControls={controls}
-          whileTap={{ cursor: 'grabbing' }}
-        >
-          {recentImg.map((img, index) => {
-            return (
-              <div className="h-full w-full px-6" key={index}>
-                <img
-                  src={img}
-                  alt="recent image"
-                  className="w-full h-full object-cover rounded-[10px] pointer-events-none"
-                />
-              </div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </article> */
-}
+Carousel.propTypes = {
+  images: PropTypes.array.isRequired,
+  count: PropTypes.number.isRequired,
+};

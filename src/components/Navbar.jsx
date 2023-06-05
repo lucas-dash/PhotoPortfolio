@@ -26,7 +26,11 @@ const Navbar = () => {
       transition={{ type: 'spring', stiffness: 60 }}
     >
       <div className="flex items-center gap-2 font-primary font-medium text-lg">
-        <img src={logo} alt="logo" />
+        <img
+          src={logo}
+          alt="logo"
+          className="w-[35px] sm:w-[42px] h-[35px] sm:h-[42px]"
+        />
         <p>Lucie Homolková</p>
       </div>
 
