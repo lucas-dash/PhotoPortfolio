@@ -5,8 +5,12 @@ import {
 } from '../utils/portfolioImg';
 import { useEffect, useState, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
+import Modal from './Modal';
+import PropTypes from 'prop-types';
 
 const Shooting = () => {
+  const [selected, setSelected] = useState(null);
+
   const headRef = useRef(null);
   const isInView = useInView(headRef, { once: true });
   const mainControls = useAnimation();
@@ -84,29 +88,49 @@ const Shooting = () => {
           <div className=" columns-2 sm:columns-3 md:columns-4 gap-3 space-y-3">
             {activeCategoryData.map((image, index) => {
               return (
-                <div
+                <Card
+                  setSelected={setSelected}
+                  index={index}
+                  image={image}
                   key={index}
-                  className="place-items-center sm:place-items-start"
-                >
-                  <motion.div
-                    className="h-max max-w-full rounded-lg overflow-hidden cursor-pointer"
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <motion.img
-                      src={image}
-                      alt={`image${index}`}
-                      loading="lazy"
-                      className="object-cover"
-                      whileHover={{ scale: 1.1 }}
-                    />
-                  </motion.div>
-                </div>
+                />
               );
             })}
           </div>
         </div>
+
+        <Modal
+          selected={selected}
+          setSelected={setSelected}
+          activeCategory={activeCategoryData}
+        />
       </article>
     </section>
   );
 };
 export default Shooting;
+
+const Card = ({ setSelected, index, image }) => {
+  return (
+    <motion.div
+      className="h-max max-w-full rounded-lg overflow-hidden cursor-pointer"
+      whileTap={{ scale: 0.9 }}
+      onClick={() => setSelected(index + 1)}
+      layoutId={`card-${index + 1}`}
+    >
+      <motion.img
+        src={image}
+        alt={`image${index}`}
+        loading="lazy"
+        className="object-cover w-full h-full"
+        whileHover={{ scale: 1.1 }}
+      />
+    </motion.div>
+  );
+};
+
+Card.propTypes = {
+  setSelected: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+};
