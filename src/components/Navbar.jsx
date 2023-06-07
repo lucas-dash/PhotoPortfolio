@@ -1,4 +1,4 @@
-import logo from '../assets/logo.svg';
+import logo from '../assets/Logo.svg';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { FiInstagram, FiFacebook, FiMail } from 'react-icons/fi';
