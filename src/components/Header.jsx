@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar';
 import highlight from '../assets/highlight.svg';
-import heroImage from '../assets/heroimg2.jpeg';
+import heroImage from '../assets/heroimg.jpeg';
 import { motion } from 'framer-motion';
 
 const Header = () => {
@@ -21,13 +21,22 @@ const Header = () => {
 
       <div className="grid grid-row-2 sm:grid-cols-6 sm:grid-rows-4 h-[90vh] w-full ">
         {/* scroll down cta */}
-        <div className="hidden sm:flex max-h-96 items-center sm:row-start-2 sm:row-end-4 w-max -translate-x-10 bg-gradient-to-tr from-detail to-detail/10 rounded-r-full">
+        <motion.div
+          className="hidden sm:flex max-h-96 items-center sm:row-start-2 sm:row-end-4 w-max -translate-x-10 bg-gradient-to-br from-detail to-detail/10 rounded-r-full"
+          // variants={{
+          //   hidden: { x: -200, opacity: 0 },
+          //   visible: { x: -40, opacity: 1 },
+          // }}
+          // initial="hidden"
+          // animate="visible"
+          // transition={{ duration: 0.5, delay: 0.9, type: 'spring' }}
+        >
           <div className="transform rotate-90 flex items-center -translate-x-4 cursor-pointer ">
             <motion.h3
               className="font-primary text-textPrimary text-3xl -translate-x-8"
-              initial={{ x: -80, opacity: 0 }}
-              animate={{ x: -10, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.5 }}
+              // initial={{ x: -80, opacity: 0 }}
+              // animate={{ x: -10, opacity: 1 }}
+              // transition={{ duration: 0.8, delay: 1.5 }}
             >
               Scroll down
             </motion.h3>
@@ -47,11 +56,11 @@ const Header = () => {
               </svg>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* hero text */}
         <div className="flex justify-center sm:col-start-2 sm:col-end-4 sm:row-start-2 sm:row-end-4">
-          <h1 className="text-textPrimary font-primary font-normal text-4xl max-w-[250px] md:text-5xl sm:max-w-sm translate-y-16">
+          <h1 className="text-textPrimary font-primary font-normal text-4xl max-w-[250px] md:text-5xl sm:max-w-sm translate-y-16 ">
             I&apos;m capturing your{' '}
             <span className="relative z-10">
               moments.
@@ -59,8 +68,8 @@ const Header = () => {
                 src={highlight}
                 alt="highlight svg"
                 className="absolute top-1.5 left-0 opacity-80 -z-10"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1.05 }}
+                initial={{ opacity: 0, scale: 0.9, y: 2 }}
+                animate={{ opacity: 1, scale: 1.08 }}
                 transition={{
                   duration: 0.5,
                   type: 'spring',
@@ -90,7 +99,7 @@ const Header = () => {
                 transition={{
                   duration: 0.3,
                   type: 'spring',
-                  stiffness: 180,
+                  stiffness: 160,
                   delay: 0.65,
                 }}
               ></motion.div>

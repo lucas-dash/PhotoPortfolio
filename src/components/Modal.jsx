@@ -26,8 +26,8 @@ const Modal = ({ selected, setSelected, activeCategory }) => {
       >
         <motion.div
           layoutId={`card-${selected}`}
-          initial={{ opacity: 0, y: 55 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.4 }}
           className="h-min max-w-[400px] mx-auto pointer-events-none"
         >

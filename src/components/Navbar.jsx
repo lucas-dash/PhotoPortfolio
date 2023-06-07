@@ -19,12 +19,7 @@ const Navbar = () => {
   }, [mobileNav]);
 
   return (
-    <motion.nav
-      className=" flex items-center justify-between text-textPrimary h-[60px] container mx-auto px-2 relative z-40"
-      initial={{ y: -200 }}
-      animate={{ y: 0 }}
-      transition={{ type: 'spring', stiffness: 60 }}
-    >
+    <nav className=" flex items-center justify-between text-textPrimary h-[60px] container mx-auto px-2 relative z-40">
       <div className="flex items-center gap-2 font-primary font-medium text-lg">
         <img
           src={logo}
@@ -34,7 +29,6 @@ const Navbar = () => {
         <p>Lucie Homolková</p>
       </div>
 
-      {/* hamburger btn */}
       <motion.button
         initial="hide"
         animate={mobileNav ? 'show' : 'hide'}
@@ -129,6 +123,7 @@ const Navbar = () => {
                 <li>
                   <a
                     href="#"
+                    aria-label="scroll to About me section"
                     className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all"
                   >
                     About
@@ -137,6 +132,7 @@ const Navbar = () => {
                 <li>
                   <a
                     href="#"
+                    aria-label="scroll to portfolio section"
                     className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all"
                   >
                     Portfolio
@@ -145,12 +141,14 @@ const Navbar = () => {
                 <li>
                   <a
                     href="#"
+                    aria-label="scroll to Gallery section"
                     className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all"
                   >
                     Gallery
                   </a>
                 </li>
               </motion.ul>
+
               <motion.div
                 variants={{
                   hide: {
@@ -188,7 +186,7 @@ const Navbar = () => {
                       stiffness: 180,
                     }}
                   >
-                    <a href="#" target="_blank">
+                    <a href="#" target="_blank" aria-label="email">
                       <FiMail size={24} />
                     </a>
                   </motion.div>
@@ -204,7 +202,12 @@ const Navbar = () => {
                       stiffness: 180,
                     }}
                   >
-                    <a href="#" target="_blank">
+                    <a
+                      href="#"
+                      target="_blank"
+                      type="button"
+                      aria-label="instagram link"
+                    >
                       <FiInstagram size={24} />
                     </a>
                   </motion.div>
@@ -220,7 +223,12 @@ const Navbar = () => {
                       stiffness: 180,
                     }}
                   >
-                    <a href="#" target="_blank">
+                    <a
+                      href="#"
+                      target="_blank"
+                      type="button"
+                      aria-label="facebook link"
+                    >
                       <FiFacebook size={24} />
                     </a>
                   </motion.div>
@@ -245,14 +253,15 @@ const Navbar = () => {
 
       <div className="hidden sm:block">
         <motion.button
-          className="font-secondary font-bold bg-accent px-9 py-2 rounded-[15px] shadow-md shadow-textSecondary/50 active:shadow-none"
+          aria-label="contact"
+          className="font-secondary font-bold bg-[#FFEA80] px-9 py-2 rounded-[15px] shadow-md shadow-textSecondary/50 active:shadow-none"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           Contact
         </motion.button>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 export default Navbar;

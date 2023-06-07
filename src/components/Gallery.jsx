@@ -15,29 +15,30 @@ const Gallery = () => {
   }, [isInView, mainControls]);
 
   return (
-    <section className="min-h-[500px] px-3 sm:px-12 py-20">
+    <section className="min-h-[500px] px-3 py-20 ">
       <motion.ul
-        className="columns-2 sm:columns-3 gap-3 space-y-3"
+        className="columns-2 sm:columns-3 space-y-3 container mx-auto"
         ref={ref}
         variants={{
-          hidden: { opacity: 0, y: 75 },
-          visible: { opacity: 1, y: 0 },
+          hidden: { opacity: 0, y: 75, scale: 0.9 },
+          visible: { opacity: 1, y: 0, scale: 1 },
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.7, delay: 0.5 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
       >
         {gallery.map((image, index) => {
           return (
-            <li key={index} className="place-items-center sm:place-items-start">
-              <div className="h-max max-w-full rounded-lg overflow-hidden shadow-lg shadow-textSecondary/50">
-                <img
-                  src={image}
-                  alt={`image${index}`}
-                  loading="lazy"
-                  className="object-cover"
-                />
-              </div>
+            <li
+              key={index}
+              className="h-max max-w-max rounded-lg overflow-hidden shadow-lg shadow-textSecondary/50"
+            >
+              <img
+                src={image}
+                alt={`image${index}`}
+                loading="lazy"
+                className="object-cover"
+              />
             </li>
           );
         })}

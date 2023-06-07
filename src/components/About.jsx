@@ -70,7 +70,7 @@ const About = () => {
             }}
             initial="hidden"
             animate={mainControls}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.4, delay: 0.6 }}
           >
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga nam
             vel perspiciatis sit impedit doloremque provident delectus neque

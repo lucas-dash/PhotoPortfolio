@@ -39,10 +39,10 @@ const Shooting = () => {
   return (
     <section className="container mx-auto mt-24 md:mt-44">
       <motion.h2
-        className="font-primary text-3xl font-medium pb-14 text-center md:text-left mx-2"
+        className="font-primary text-3xl font-medium pb-10 text-center md:text-left mx-2"
         ref={headRef}
         variants={{
-          hidden: { opacity: 0, y: 75 },
+          hidden: { opacity: 0, y: 55 },
           visible: { opacity: 1, y: 0 },
         }}
         initial="hidden"

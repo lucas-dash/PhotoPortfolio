@@ -63,6 +63,7 @@ const Carousel = ({ images, count }) => {
                     <img
                       src={img}
                       alt="recent image"
+                      loading="lazy"
                       className="w-full h-full object-cover rounded-[10px] pointer-events-none"
                     />
                   </motion.div>
