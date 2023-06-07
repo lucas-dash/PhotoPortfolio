@@ -2,6 +2,7 @@ import logo from '../assets/Logo.svg';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { FiInstagram, FiFacebook, FiMail } from 'react-icons/fi';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const [mobileNav, setMobileNav] = useState(false);
@@ -121,31 +122,46 @@ const Navbar = () => {
                 className="list-none space-y-6"
               >
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="about"
+                    spy={true}
+                    offset={-20}
+                    smooth={true}
+                    duration={100}
                     aria-label="scroll to About me section"
-                    className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all"
+                    onClick={() => setMobileNav(false)}
+                    className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all cursor-pointer"
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="portfolio"
+                    spy={true}
+                    offset={-20}
+                    smooth={true}
+                    duration={100}
                     aria-label="scroll to portfolio section"
-                    className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all"
+                    onClick={() => setMobileNav(false)}
+                    className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all cursor-pointer"
                   >
                     Portfolio
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="gallery"
+                    spy={true}
+                    offset={-20}
+                    smooth={true}
+                    duration={100}
                     aria-label="scroll to Gallery section"
-                    className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all"
+                    onClick={() => setMobileNav(false)}
+                    className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all cursor-pointer"
                   >
                     Gallery
-                  </a>
+                  </Link>
                 </li>
               </motion.ul>
 
@@ -241,25 +257,54 @@ const Navbar = () => {
 
       <ul className="hidden sm:flex items-center gap-4 md:gap-10 font-secondary text-lg">
         <li className="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100">
-          <a href="#">About</a>
+          <Link
+            to="about"
+            spy={true}
+            offset={-20}
+            smooth={true}
+            duration={100}
+            aria-label="scrool to about section"
+          >
+            About
+          </Link>
         </li>
         <li className="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100">
-          <a href="#">Portfolio</a>
+          <Link
+            to="portfolio"
+            spy={true}
+            offset={-20}
+            smooth={true}
+            duration={100}
+            aria-label="scrool to portfolio section"
+          >
+            Portfolio
+          </Link>
         </li>
         <li className="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100">
-          <a href="#">Gallery</a>
+          <Link
+            to="gallery"
+            spy={true}
+            offset={-20}
+            smooth={true}
+            duration={100}
+            aria-label="scrool to Gallery"
+          >
+            Gallery
+          </Link>
         </li>
       </ul>
 
       <div className="hidden sm:block">
-        <motion.button
-          aria-label="contact"
-          className="font-secondary font-bold bg-[#FFEA80] px-9 py-2 rounded-[15px] shadow-md shadow-textSecondary/50 active:shadow-none"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          Contact
-        </motion.button>
+        <Link to="contact" spy={true} smooth={true} offset={0} duration={200}>
+          <motion.button
+            aria-label="scroll to contact section"
+            className="font-secondary font-bold bg-[#FFEA80] px-9 py-2 rounded-[15px] shadow-md shadow-textSecondary/50 active:shadow-none"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Contact
+          </motion.button>
+        </Link>
       </div>
     </nav>
   );

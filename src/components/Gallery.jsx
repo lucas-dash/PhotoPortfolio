@@ -15,7 +15,7 @@ const Gallery = () => {
   }, [isInView, mainControls]);
 
   return (
-    <section className="min-h-[500px] px-3 py-20 ">
+    <section className="min-h-[500px] px-3 py-20" id="gallery">
       <motion.ul
         className="columns-2 sm:columns-3 space-y-3 container mx-auto"
         ref={ref}

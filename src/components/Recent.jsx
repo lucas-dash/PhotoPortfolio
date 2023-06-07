@@ -7,7 +7,7 @@ const Recent = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <section className="text-textPrimary pb-20">
+    <section className="text-textPrimary pb-20" id="recent">
       <div className="flex justify-between mt-16 w-11/12 mx-auto">
         <h2 className="font-primary text-3xl sm:text-4xl font-medium">
           Recent Work

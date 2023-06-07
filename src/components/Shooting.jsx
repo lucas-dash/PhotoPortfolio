@@ -37,7 +37,7 @@ const Shooting = () => {
   }, [isInView, mainControls]);
 
   return (
-    <section className="container mx-auto mt-24 md:mt-44">
+    <section className="container mx-auto mt-24 md:mt-44" id="portfolio">
       <motion.h2
         className="font-primary text-3xl font-medium pb-10 text-center md:text-left mx-2"
         ref={headRef}

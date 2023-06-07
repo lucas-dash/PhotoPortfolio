@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar';
 import highlight from '../assets/highlight.svg';
 import heroImage from '../assets/heroimg.jpeg';
 import { motion } from 'framer-motion';
+import { Link } from 'react-scroll';
 
 const Header = () => {
   const bgVariant = {
@@ -31,31 +32,40 @@ const Header = () => {
           // animate="visible"
           // transition={{ duration: 0.5, delay: 0.9, type: 'spring' }}
         >
-          <div className="transform rotate-90 flex items-center -translate-x-4 cursor-pointer ">
-            <motion.h3
-              className="font-primary text-textPrimary text-3xl -translate-x-8"
-              // initial={{ x: -80, opacity: 0 }}
-              // animate={{ x: -10, opacity: 1 }}
-              // transition={{ duration: 0.8, delay: 1.5 }}
-            >
-              Scroll down
-            </motion.h3>
-            <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="200"
-                fill="currentColor"
-                className="bi bi-arrow-right"
-                viewBox="0 0 16 16"
+          <Link
+            to="recent"
+            spy={true}
+            offset={-30}
+            smooth={true}
+            duration={100}
+            aria-label="scrool down"
+          >
+            <div className="transform rotate-90 flex items-center -translate-x-4 cursor-pointer ">
+              <motion.h3
+                className="font-primary text-textPrimary text-3xl -translate-x-8"
+                // initial={{ x: -80, opacity: 0 }}
+                // animate={{ x: -10, opacity: 1 }}
+                // transition={{ duration: 0.8, delay: 1.5 }}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                />
-              </svg>
+                Scroll down
+              </motion.h3>
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="200"
+                  fill="currentColor"
+                  className="bi bi-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                  />
+                </svg>
+              </div>
             </div>
-          </div>
+          </Link>
         </motion.div>
 
         {/* hero text */}

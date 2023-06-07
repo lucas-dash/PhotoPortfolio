@@ -16,7 +16,10 @@ const Contact = () => {
   }, [isInView, mainControls]);
 
   return (
-    <footer className="py-10 px-5 container mx-auto overflow-hidden">
+    <footer
+      className="py-10 px-5 container mx-auto overflow-hidden"
+      id="contact"
+    >
       <motion.h2
         className="font-primary text-3xl font-medium text-center sm:text-left "
         ref={ref}

@@ -18,7 +18,7 @@ const About = () => {
   }, [isInView, mainControls, textInView]);
 
   return (
-    <section className="container mx-auto mt-28">
+    <section className="container mx-auto mt-28" id="about">
       <article className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="flex flex-col items-center">
           <motion.h2
