@@ -70,7 +70,7 @@ const Shooting = () => {
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="active-tab"
-                    className="absolute inset-0 bg-detail "
+                    className="absolute inset-0 bg-detail"
                     style={{ borderRadius: 16 }}
                     transition={{ duration: 0.6, type: 'spring' }}
                   />
@@ -83,7 +83,6 @@ const Shooting = () => {
           })}
         </div>
 
-        {/* gallery */}
         <div className=" bg-detail rounded-[20px] mt-5 p-3 min-h-[400px]">
           <div className=" columns-2 sm:columns-3 md:columns-4 gap-3 space-y-3">
             {activeCategoryData.map((image, index) => {

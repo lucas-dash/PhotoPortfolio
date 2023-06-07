@@ -240,13 +240,13 @@ const Navbar = () => {
       </AnimatePresence>
 
       <ul className="hidden sm:flex items-center gap-4 md:gap-10 font-secondary text-lg">
-        <li className="cursor-pointer">
+        <li className="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100">
           <a href="#">About</a>
         </li>
-        <li className="cursor-pointer">
+        <li className="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100">
           <a href="#">Portfolio</a>
         </li>
-        <li className="cursor-pointer">
+        <li className="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100">
           <a href="#">Gallery</a>
         </li>
       </ul>

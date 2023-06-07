@@ -47,12 +47,22 @@ const Contact = () => {
             <FiMail size={20} />
             <p aria-label="email">lucie.homolkova@gmail.com</p>
           </div>
-          <a href="#" target="_blank" className="flex gap-2 items-center">
+          <a
+            href="#"
+            target="_blank"
+            className="flex gap-2 items-center"
+            aria-label="link to instagram"
+          >
             <FiInstagram size={20} />
             <p aria-label="instagram">Instagram</p>
           </a>
 
-          <a href="#" target="_blank" className="flex gap-2 items-center">
+          <a
+            href="#"
+            target="_blank"
+            aria-label="link to facebook"
+            className="flex gap-2 items-center"
+          >
             <FiFacebook size={20} />
             <p aria-label="email">facebook</p>
           </a>
@@ -74,6 +84,7 @@ const Contact = () => {
               <img
                 src={image1}
                 alt="my photo at polaroit"
+                loading="lazy"
                 className="object-cover aspect-square w-full h-full"
               />
             </div>
