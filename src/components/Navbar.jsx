@@ -1,4 +1,4 @@
-import logo from '../assets/Logo.svg';
+import logo from '../assets/logo.svg';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { FiInstagram, FiFacebook, FiMail } from 'react-icons/fi';
@@ -20,7 +20,7 @@ const Navbar = () => {
   }, [mobileNav]);
 
   return (
-    <nav className=" flex items-center justify-between text-textPrimary h-[60px] container mx-auto px-2 relative z-40">
+    <nav className="flex items-center justify-between text-textPrimary h-[60px] container mx-auto px-2 relative z-40">
       <div className="flex items-center gap-2 font-primary font-medium text-lg">
         <img
           src={logo}
@@ -202,9 +202,17 @@ const Navbar = () => {
                       stiffness: 180,
                     }}
                   >
-                    <a href="#" target="_blank" aria-label="email">
+                    <Link
+                      to="contact"
+                      spy={true}
+                      offset={-20}
+                      smooth={true}
+                      duration={100}
+                      aria-label="scroll to Contact section"
+                      onClick={() => setMobileNav(false)}
+                    >
                       <FiMail size={24} />
-                    </a>
+                    </Link>
                   </motion.div>
                 </li>
                 <li>
@@ -219,10 +227,11 @@ const Navbar = () => {
                     }}
                   >
                     <a
-                      href="#"
+                      href="https://www.instagram.com/luci_homolkova/?igshid=MzRlODBiNWFlZA%3D%3D"
                       target="_blank"
                       type="button"
                       aria-label="instagram link"
+                      rel="noreferrer"
                     >
                       <FiInstagram size={24} />
                     </a>
@@ -240,10 +249,11 @@ const Navbar = () => {
                     }}
                   >
                     <a
-                      href="#"
+                      href="https://www.facebook.com/profile.php?id=100000356562716"
                       target="_blank"
                       type="button"
                       aria-label="facebook link"
+                      rel="noreferrer"
                     >
                       <FiFacebook size={24} />
                     </a>

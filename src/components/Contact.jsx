@@ -46,28 +46,30 @@ const Contact = () => {
           animate={mainControls}
           transition={{ duration: 0.5, delay: 0.55 }}
         >
-          <div className="flex gap-2">
+          <div className="flex gap-2" aria-label="email">
             <FiMail size={20} />
-            <p aria-label="email">lucie.homolkova@gmail.com</p>
+            <p>lucie.homolkova@gmail.com</p>
           </div>
           <a
-            href="#"
+            href="https://www.instagram.com/luci_homolkova/?igshid=MzRlODBiNWFlZA%3D%3D"
             target="_blank"
-            className="flex gap-2 items-center"
+            className="flex gap-2 items-center relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100"
             aria-label="link to instagram"
+            rel="noreferrer"
           >
             <FiInstagram size={20} />
-            <p aria-label="instagram">Instagram</p>
+            <p>Instagram</p>
           </a>
 
           <a
-            href="#"
+            href="https://www.facebook.com/profile.php?id=100000356562716"
             target="_blank"
             aria-label="link to facebook"
-            className="flex gap-2 items-center"
+            className="flex gap-2 items-center relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-0 before:w-0 before:h-1 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-purple-400 hover:before:w-full hover:before:opacity-100"
+            rel="noreferrer"
           >
             <FiFacebook size={20} />
-            <p aria-label="email">facebook</p>
+            <p>facebook</p>
           </a>
         </motion.div>
 
