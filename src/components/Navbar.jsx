@@ -35,6 +35,7 @@ const Navbar = () => {
         animate={mobileNav ? 'show' : 'hide'}
         onClick={toggleMobileNav}
         className="sm:hidden flex flex-col space-y-1 relative z-10"
+        aria-label="show or hide navigation"
       >
         <motion.span
           variants={{
@@ -131,6 +132,7 @@ const Navbar = () => {
                     aria-label="scroll to About me section"
                     onClick={() => setMobileNav(false)}
                     className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all cursor-pointer"
+                    role="button"
                   >
                     About
                   </Link>
@@ -145,6 +147,7 @@ const Navbar = () => {
                     aria-label="scroll to portfolio section"
                     onClick={() => setMobileNav(false)}
                     className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all cursor-pointer"
+                    role="button"
                   >
                     Portfolio
                   </Link>
@@ -159,6 +162,7 @@ const Navbar = () => {
                     aria-label="scroll to Gallery section"
                     onClick={() => setMobileNav(false)}
                     className="text-5xl font-medium font-secondary text-white hover:text-detail transition-all cursor-pointer"
+                    role="button"
                   >
                     Gallery
                   </Link>
@@ -210,6 +214,7 @@ const Navbar = () => {
                       duration={100}
                       aria-label="scroll to Contact section"
                       onClick={() => setMobileNav(false)}
+                      role="button"
                     >
                       <FiMail size={24} />
                     </Link>
@@ -229,7 +234,6 @@ const Navbar = () => {
                     <a
                       href="https://www.instagram.com/luci_homolkova/?igshid=MzRlODBiNWFlZA%3D%3D"
                       target="_blank"
-                      type="button"
                       aria-label="instagram link"
                       rel="noreferrer"
                     >
@@ -251,7 +255,6 @@ const Navbar = () => {
                     <a
                       href="https://www.facebook.com/profile.php?id=100000356562716"
                       target="_blank"
-                      type="button"
                       aria-label="facebook link"
                       rel="noreferrer"
                     >
@@ -274,6 +277,7 @@ const Navbar = () => {
             smooth={true}
             duration={100}
             aria-label="scrool to about section"
+            role="button"
           >
             About
           </Link>
@@ -286,6 +290,7 @@ const Navbar = () => {
             smooth={true}
             duration={100}
             aria-label="scrool to portfolio section"
+            role="button"
           >
             Portfolio
           </Link>
@@ -298,6 +303,7 @@ const Navbar = () => {
             smooth={true}
             duration={100}
             aria-label="scrool to Gallery"
+            role="button"
           >
             Gallery
           </Link>
@@ -305,7 +311,14 @@ const Navbar = () => {
       </ul>
 
       <div className="hidden sm:block">
-        <Link to="contact" spy={true} smooth={true} offset={0} duration={200}>
+        <Link
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={200}
+          role="button"
+        >
           <motion.button
             aria-label="scroll to contact section"
             className="font-secondary font-bold bg-[#FFEA80] px-9 py-2 rounded-[15px] shadow-md shadow-textSecondary/50 active:shadow-none"

@@ -37,6 +37,7 @@ const Header = () => {
             smooth={true}
             duration={100}
             aria-label="scrool down"
+            role="button"
           >
             <div className="transform rotate-90 flex items-center -translate-x-4 cursor-pointer ">
               <h3 className="font-primary text-textPrimary text-3xl -translate-x-8">
@@ -107,7 +108,7 @@ const Header = () => {
                   duration: 0.3,
                   type: 'spring',
                   stiffness: 160,
-                  delay: 0.65,
+                  delay: 0.75,
                 }}
               ></motion.div>
               <img
