@@ -47,8 +47,6 @@ const About = () => {
             transition={{
               duration: 0.5,
               delay: 0.7,
-              type: 'spring',
-              stiffness: 80,
             }}
           >
             <img

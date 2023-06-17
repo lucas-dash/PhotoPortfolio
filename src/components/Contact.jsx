@@ -8,12 +8,14 @@ const Contact = () => {
   const isInView = useInView(ref, { once: true });
 
   const mainControls = useAnimation();
+  const imgControls = useAnimation();
 
   useEffect(() => {
     if (isInView) {
+      imgControls.start('visible');
       mainControls.start('visible');
     }
-  }, [isInView, mainControls]);
+  }, [isInView, mainControls, imgControls]);
 
   return (
     <footer
@@ -85,14 +87,23 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.65 }}
         >
           <div className="rounded-md bg-detail max-h-[480px] max-w-[400px] p-5 shadow-lg shadow-textSecondary/50">
-            <div className="max-w-[430px] max-h-[300px] overflow-hidden mb-16 rounded-sm">
+            <motion.div
+              className="max-w-[430px] max-h-[300px] overflow-hidden mb-16 rounded-sm"
+              variants={{
+                hidden: { opacity: 0, filter: 'blur(10px)' },
+                visible: { opacity: 1, filter: 'blur(0)' },
+              }}
+              initial="hidden"
+              animate={imgControls}
+              transition={{ duration: 1, delay: 1.3 }}
+            >
               <img
                 src={image1}
                 alt="my photo at polaroit"
                 loading="lazy"
                 className="object-cover aspect-square w-full h-full"
               />
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

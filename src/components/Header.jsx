@@ -93,9 +93,9 @@ const Header = () => {
 
         <motion.div
           className="flex justify-center sm:items-center sm:col-start-4 sm:col-end-7 sm:row-start-2 sm:row-end-4"
-          initial={{ x: 400 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.9, type: 'spring', stiffness: 60 }}
+          // initial={{ x: 400 }}
+          // animate={{ x: 0 }}
+          // transition={{ duration: 0.9, type: 'spring', stiffness: 60 }}
         >
           <div className="max-w-max max-h-max">
             <div className="w-[280px] sm:w-[300px] md:w-auto max-w-md max-h-80 aspect-square relative z-10 sm:-translate-x-3">

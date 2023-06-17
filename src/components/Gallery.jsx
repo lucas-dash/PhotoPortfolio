@@ -31,7 +31,7 @@ const Gallery = () => {
           return (
             <li
               key={index}
-              className="h-max max-w-max rounded-lg overflow-hidden shadow-lg shadow-textSecondary/50"
+              className="h-max max-w-max rounded-lg overflow-hidden"
             >
               <img
                 src={image}

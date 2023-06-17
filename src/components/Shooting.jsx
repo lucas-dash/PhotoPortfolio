@@ -84,7 +84,7 @@ const Shooting = () => {
         </div>
 
         <div className=" bg-detail rounded-[20px] mt-5 p-3 min-h-[400px]">
-          <div className=" columns-2 sm:columns-3 md:columns-4 gap-3 space-y-3">
+          <div className="columns-2 sm:columns-3 md:columns-4 gap-3 space-y-3">
             {activeCategoryData.map((image, index) => {
               return (
                 <Card
